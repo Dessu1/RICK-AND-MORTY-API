@@ -1,7 +1,7 @@
 import React from "react";
 
 const Episodes = () => {
-  return <div>Episodios</div>;
+  return <div id>Episodios</div>;
 };
 
 export default Episodes;
