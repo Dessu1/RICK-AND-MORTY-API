@@ -16,9 +16,6 @@ function App() {
         <Route exact path='/characters'>
           <Characters />
         </Route>
-        <Route exact path='/episodes'>
-          <Episodes />
-        </Route>
         <Route exact path='/locations'>
           <Locations />
         </Route>
