@@ -2,7 +2,6 @@ import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 import Characters from "./views/Characters";
 import Navbar from "./components/Navbar";
-import Episodes from "./views/Episodes";
 import Locations from "./views/Locations";
 
 function App() {
