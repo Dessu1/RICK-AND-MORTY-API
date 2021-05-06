@@ -90,7 +90,7 @@ const Characters = () => {
       </form>
       <div className='container-buttons'>
         {prev && <button onClick={() => prevCharacters()}>Previous</button>}
-        <button onClick={() => nextCharacters()}>Next</button>
+        {next && <button onClick={() => nextCharacters()}>Next</button>}
       </div>
 
       <div className='container-characters'>
@@ -98,8 +98,7 @@ const Characters = () => {
           .filter((item) => {
             if (buscar === "") {
               return item;
-            }
-            if (item.name.toLowerCase().includes(buscar.toLowerCase())) {
+            } else if (item.name.toLowerCase().includes(buscar.toLowerCase())) {
               return item;
             }
           })
