@@ -5,6 +5,7 @@ const Characters = () => {
   const [next, setNext] = useState("");
   const [characters, setCharacters] = useState([]);
   const [prev, setPrev] = useState("");
+  const [buscar, setBuscar] = useState("");
 
   const getCharacters = async () => {
     if (localStorage.getItem("characters0")) {
@@ -80,14 +81,29 @@ const Characters = () => {
 
   return (
     <div id='characters'>
-      <div className='container-content'>
-        <div className='container-buttons'>
-          {prev && <button onClick={() => prevCharacters()}>Previous</button>}
-          <button onClick={() => nextCharacters()}>Next</button>
-        </div>
+      <form className='form-buscar'>
+        <input
+          type='text'
+          placeholder='Buscar..'
+          onChange={(e) => setBuscar(e.target.value)}
+        />
+      </form>
+      <div className='container-buttons'>
+        {prev && <button onClick={() => prevCharacters()}>Previous</button>}
+        <button onClick={() => nextCharacters()}>Next</button>
+      </div>
 
-        <div className='container-characters'>
-          {characters.map((item) => {
+      <div className='container-characters'>
+        {characters
+          .filter((item) => {
+            if (buscar === "") {
+              return item;
+            }
+            if (item.name.toLowerCase().includes(buscar.toLowerCase())) {
+              return item;
+            }
+          })
+          .map((item) => {
             return (
               <div className='card' key={item.id}>
                 <div className='title-name'>
@@ -130,7 +146,6 @@ const Characters = () => {
               </div>
             );
           })}
-        </div>
       </div>
     </div>
   );

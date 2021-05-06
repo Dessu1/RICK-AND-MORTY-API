@@ -21,6 +21,16 @@
     }
   }
 
+  .form-buscar {
+    width: 100%;
+    margin: 0.5rem;
+
+    input {
+      width: 30%;
+      height: 2.5rem;
+    }
+  }
+
   .container-characters {
     width: 100%;
     display: grid;
